@@ -1,4 +1,4 @@
-package com.jyun.test.http;
+package com.jyun.test.algorithms.kmp;
 
 public class KMP {
   

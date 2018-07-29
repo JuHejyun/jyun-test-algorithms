@@ -89,12 +89,13 @@ chatrooms = itchat.get_chatrooms(update=True, contactOnly=True)
 chatroom_ids=[]
 chatroom_sync=[]
 for c in chatrooms:
-    if c['NickName'] in ['华大小分队','华大']:
-        chatroom_ids.append(c['UserName'])
-    elif c['NickName'] in ['那些年']:
+    #if c['NickName'] in ['华大小分队','华大']:
+    chatroom_ids.append(c['UserName'])
+    #elif c['NickName'] in ['那些年']:
+    if not c['NickName'] in ['那些年']:
         chatroom_sync.append(c)
-    else:
-        print ('排除的：',c['NickName'])
+    #else:
+        #print ('排除的：',c['NickName'])
 
 
 print (' '.join([item['NickName'] for item in chatrooms]))

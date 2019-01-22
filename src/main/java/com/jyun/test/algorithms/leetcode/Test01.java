@@ -2,10 +2,7 @@ package com.jyun.test.algorithms.leetcode;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Test01 {
 
@@ -79,4 +76,33 @@ public class Test01 {
 		String s = frequencySort(str);
 		System.out.println(s);
 	}
+
+
+	/**
+	 * 贪心思想 分配饼干
+	 * @param g
+	 * @param s
+	 * @return
+	 */
+	public int findContentChildren(int[] g, int[] s) {
+		Arrays.sort(g);
+		Arrays.sort(s);
+		int gi = 0, si = 0;
+		while (gi < g.length && si < s.length) {
+			if (g[gi] <= s[si]) {
+				gi++;
+			}
+			si++;
+		}
+		return gi;
+	}
+
+	@Test
+	public void testFindContentChildren(){
+		int[] a = {1,6,100};
+		int[] b = {10,11,3,20,7,8,9};
+		int s = findContentChildren(a, b);
+		System.out.println(s);
+	}
+
 }

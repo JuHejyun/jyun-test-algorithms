@@ -33,4 +33,22 @@ public class Test01 {
 		return str.toString();
 	}
 
+
+	public ListNode deleteDuplication(ListNode pHead) {
+		if (pHead == null || pHead.next == null)
+			return pHead;
+		ListNode next = pHead.next;
+		if (pHead.data == next.data) {
+			while (next != null && pHead.data == next.data)
+				next = next.next;
+			return deleteDuplication(next);
+		} else {
+			pHead.next = deleteDuplication(pHead.next);
+			return pHead;
+		}
+	}
+
+
+
+
 }
